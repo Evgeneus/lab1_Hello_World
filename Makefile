@@ -1,11 +1,16 @@
 # Makefile for lab1
+CC=gcc
+CLEAN=rm
+CLEAN_FLAGS=-f
+CLEAN_COMMAND=$(CLEAN) $(CLEAN_FLAGS)
+PROGRAM_NAME=lab1
 
-lab1: myclock.o
-	gcc -o lab1 myclock.o
+$(PROGRAM_NAME): myclock.o
+	$(CC) -o $(PROGRAM_NAME) myclock.o
 
 myclock.o: myclock.c
-	gcc -c myclock.c	
+	$(CC) -c myclock.c	
 
 clean: 
-	rm -f *.o
-	rm -f lab1
+	$(CLEAN_COMMAND) *.o
+	$(CLEAN_COMMAND) $(PROGRAM_NAME)
